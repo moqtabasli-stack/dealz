@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0051)file:///C:/Users/bura5/Downloads/dealz-store_8.html -->
+<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ديلز | Dealz</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="./ديلز _ Dealz2222_files/css2" rel="stylesheet">
 <style>
   :root {
     --purple: #6C22BD;
@@ -703,23 +703,12 @@
 </head>
 <body>
 
-<!-- ===== LOGIN ===== -->
-<div id="loginOverlay">
-  <div class="login-box">
-    <div class="login-logo">Dealz</div>
-    <div class="login-sub">متجرك العصري للعروض المميزة</div>
-    <input type="password" id="loginInput" placeholder="أدخل كلمة السر" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">دخول ← </button>
-    <div class="login-error" id="loginError">❌ كلمة السر غلط، حاول مرة ثانية</div>
-  </div>
-</div>
-
 <!-- ===== NAVBAR ===== -->
 <nav>
   <div class="nav-logo">Dealz ✦</div>
   <ul class="nav-links">
-    <li><a href="#products" class="active">المنتجات</a></li>
-    <li><a href="#contact">تواصل معنا</a></li>
+    <li><a href="file:///C:/Users/bura5/Downloads/dealz-store_8.html#products" class="active">المنتجات</a></li>
+    <li><a href="file:///C:/Users/bura5/Downloads/dealz-store_8.html#contact">تواصل معنا</a></li>
   </ul>
   <div class="nav-contact">
     <a href="tel:0583084334">📞 0583084334</a>
@@ -730,9 +719,9 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-badge">⚡ عروض حصرية كل يوم</div>
-  <h1>تسوّق الأفضل<br>بأسعار <span>لا تُصدَّق</span></h1>
-  <p>اكتشف منتجات مختارة بعناية بأسعار تنافسية وجودة عالية</p>
-  <a href="#products" class="hero-cta">تصفح المنتجات الآن</a>
+  <h1>تسوّق الأفضل<br>بأفضل <span>الأسعار</span></h1>
+  <p>اكتشف منتجات مختارة بعناية بجودة عالية</p>
+  <a href="file:///C:/Users/bura5/Downloads/dealz-store_8.html#products" class="hero-cta">تصفح المنتجات الآن</a>
 </section>
 
 <!-- ===== PRODUCTS ===== -->
@@ -740,12 +729,11 @@
   <div class="section-title">🛍️ <span>منتجاتنا</span></div>
   <div class="section-sub">اضغط على أي منتج لطلبه مباشرة</div>
   <div class="products-grid" id="productsGrid">
-    <div class="empty-state">
-      <div class="empty-icon">📦</div>
-      <h3>المنتجات قريباً!</h3>
-      <p>سيتم إضافة المنتجات قريباً — ترقبوا العروض المميزة</p>
-    </div>
-  </div>
+        <div class="empty-state">
+          <div class="empty-icon">📦</div>
+          <h3>المنتجات قريباً!</h3>
+          <p>سيتم إضافة المنتجات قريباً — ترقبوا العروض المميزة</p>
+        </div></div>
 </section>
 
 <!-- ===== CONTACT ===== -->
@@ -833,10 +821,10 @@
     <div class="modal-desc" id="modalDesc"></div>
     <div class="modal-price" id="modalPrice"></div>
     <div class="modal-actions">
-      <a class="modal-wa" id="modalWa" href="#" target="_blank">
+      <a class="modal-wa" id="modalWa" href="file:///C:/Users/bura5/Downloads/dealz-store_8.html#" target="_blank">
         💬 واتساب
       </a>
-      <a class="modal-email" id="modalMail" href="#">
+      <a class="modal-email" id="modalMail" href="file:///C:/Users/bura5/Downloads/dealz-store_8.html#">
         ✉️ إيميل
       </a>
     </div>
@@ -852,18 +840,6 @@
   const EMAIL = 'moqtabasli@gmail.com';
 
   let products = JSON.parse(localStorage.getItem('dealz_products') || '[]');
-
-  // ===== LOGIN =====
-  function doLogin() {
-    const val = document.getElementById('loginInput').value;
-    if (val === PASSWORD) {
-      document.getElementById('loginOverlay').style.display = 'none';
-    } else {
-      document.getElementById('loginError').style.display = 'block';
-      document.getElementById('loginInput').value = '';
-      document.getElementById('loginInput').focus();
-    }
-  }
 
   // ===== PRODUCTS =====
   function renderProducts() {
@@ -911,7 +887,17 @@
   }
 
   // ===== ADMIN =====
+  let adminUnlocked = false;
   function openAdmin() {
+    if (!adminUnlocked) {
+      const pass = prompt('أدخل كلمة السر للدخول للوحة التحكم:');
+      if (pass === PASSWORD) {
+        adminUnlocked = true;
+      } else {
+        alert('كلمة السر غلط!');
+        return;
+      }
+    }
     document.getElementById('adminPanel').classList.add('open');
     renderAdminList();
   }
@@ -994,5 +980,6 @@
   // Initial render
   renderProducts();
 </script>
-</body>
-</html>
+
+
+</body></html>
